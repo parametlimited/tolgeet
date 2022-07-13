@@ -20,7 +20,8 @@
   "author": "Paramet Limited",
   "license": "MIT",
   "dependencies": {
-    "command-line-args": "^5.2.1"
+    "command-line-args": "^5.2.1",
+    "jszip": "^3.10.0"
   },
   "devDependencies": {
     "@types/command-line-args": "^5.2.0",
