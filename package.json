@@ -2,7 +2,7 @@
   "name": "tolgeet",
   "version": "1.0.0",
   "description": "Gets and transforms language files from tolgee.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +16,12 @@
     "json"
   ],
   "author": "Paramet Limited",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^5.2.0",
+    "typescript": "^4.7.4"
+  }
 }
