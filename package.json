@@ -1,12 +1,18 @@
 {
   "name": "@paramet/tolgeet",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Gets and transforms language files from tolgee.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
     "./package": "./package.json"
   },
+  "files": [
+    "/dist/",
+    "!/dist/test",
+    "/LICENSE"
+  ],
+  "bin": "./dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
