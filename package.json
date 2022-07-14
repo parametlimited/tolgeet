@@ -1,11 +1,18 @@
 {
-  "name": "tolgeet",
+  "name": "@paramet/tolgeet",
   "version": "1.0.0",
   "description": "Gets and transforms language files from tolgee.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package": "./package.json"
+  },
   "scripts": {
+    "clean": "rimraf dist",
     "build": "tsc",
-    "start": "npm run build && node build/index.js",
+    "rebuild": "npm run clean && npm run build",
+    "prepare": "npm run rebuild",
+    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -25,7 +32,8 @@
     "command-line-args": "^5.2.1",
     "flat": "^5.0.2",
     "jszip": "^3.10.0",
-    "resx": "^2.0.3"
+    "resx": "^2.0.3",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/command-line-args": "^5.2.0",
