@@ -35,7 +35,7 @@ fileWriter.on("finish", async () => {
     }
 
     for (let map of options["map"]) {
-        const [infile, outfile]: [string, string] = map.split(":");
+        const [infile, outfile]: [string, string] = map.split(/:(.*)/s);
         const indata = fs.readFileSync(`${TEMPORARY_FOLDER_NAME}/${infile}`);
         const translations: any = flatten(JSON.parse(indata.toString()));
 
