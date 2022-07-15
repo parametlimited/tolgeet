@@ -10,8 +10,24 @@ import { flatten } from "flat";
 import { TEMPORARY_FILE_NAME, TEMPORARY_FOLDER_NAME } from "./defaults";
 
 function clean() {
-    fs.rmSync(TEMPORARY_FILE_NAME);
-    fs.rmSync(TEMPORARY_FOLDER_NAME, { recursive: true });
+    if(fs.existsSync(TEMPORARY_FILE_NAME)) {
+        fs.rmSync(TEMPORARY_FILE_NAME);
+    }
+
+    
+    if(fs.existsSync(TEMPORARY_FOLDER_NAME)) {
+        fs.rmSync(TEMPORARY_FOLDER_NAME, { recursive: true });
+    }
+}
+
+function sanitize(translations: { [key: string]: string }) {
+    for(let key of Object.keys(translations)) {
+        if(translations[key] === null) {
+            delete translations[key];
+        }
+    }
+
+    return translations;
 }
 
 const options: commandLineArgs.CommandLineOptions = commandLineArgs([
@@ -47,7 +63,7 @@ fileWriter.on("finish", async () => {
         const translations: any = flatten(JSON.parse(indata.toString()));
 
         if(outfile.endsWith(".resx")) {
-            resx.js2resx(translations, (err: Error, res: string) => {
+            resx.js2resx(sanitize(translations), (err: Error, res: string) => {
                 fs.writeFileSync(outfile, res);
             });
         } else if (outfile.endsWith(".json")) {
