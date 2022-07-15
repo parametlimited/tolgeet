@@ -1,6 +1,6 @@
 {
   "name": "@paramet/tolgeet",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Gets and transforms language files from tolgee.",
   "main": "dist/index.js",
   "exports": {
